@@ -16,7 +16,8 @@ const nextConfig = {
   webpack: (config, context) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     config.resolve.fallback = { fs: false, net: false, tls: false };
-
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    config.externals.push("pino-pretty", "lokijs", "encoding");
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return config;
   },

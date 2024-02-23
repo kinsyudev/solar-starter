@@ -1,20 +1,19 @@
 import { Inter } from "next/font/google";
-
-import "./globals.css";
-
 import { headers } from "next/headers";
 import { type ReactNode } from "react";
-import { cookieToInitialState } from "wagmi";
-
-import { ContextProvider } from "@/app/context";
-import { config } from "@/configs/wagmi";
+import { Toaster } from "sonner";
 
 import "@rainbow-me/rainbowkit/styles.css";
 
+import { cookieToInitialState } from "wagmi";
+
+import "./globals.css";
+
+import { ContextProvider } from "@/app/context";
 import { projectMetadata } from "@/configs/project";
+import { config } from "@/configs/wagmi";
 import { cn } from "@/lib/utils";
 
-// import("supports-color");
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +26,7 @@ export default function RootLayout(props: { children: ReactNode }) {
         <ContextProvider initialState={initialState}>
           {props.children}
         </ContextProvider>
+        <Toaster />
       </body>
     </html>
   );
